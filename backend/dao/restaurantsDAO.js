@@ -86,6 +86,7 @@ export default class RestaurantsDAO {
         }
     }
 
+    //Method to return an array list of distinct cuisine types from all restaurants
     static async getCuisines() {
         let cuisines = [];
 
