@@ -31,7 +31,7 @@ function App() {
                 </li>
                 <li className="nav-item">
                     { user
-                        ? <button onClick={logout} className="nav-link" style={{cursor: "pointer"}}>Logout {user.name}</button>
+                        ? <button onClick={logout} className="btn btn-dark" style={{cursor: "pointer"}}>Logout {user.name}</button>
                         : <Link to="/login" className="nav-link">Login</Link>
                     }
                 </li>
