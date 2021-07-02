@@ -28,7 +28,7 @@ const Restaurant = props => {
     }, [props.match.params.id]);
 
     const deleteReview = (reviewId, index) => {
-        RestaurantDataService.deleteReview(reviewId)
+        RestaurantDataService.deleteReview(reviewId, props.user.id)
             .then(response => {
                 setRestaurant((prevState) => {
                     prevState.reviews.splice(index, 1);
@@ -51,7 +51,7 @@ const Restaurant = props => {
                         <br />
                         <strong>Address: </strong>{restaurant.address.building} {restaurant.address.street}, {restaurant.address.zipcode}
                     </p>
-                    <Link to={"/restaurants" + props.match.params.id + "/review"} className="btn btn-primary">Add Review</Link>
+                    <Link to={"/restaurants/" + props.match.params.id + "/review"} className="btn btn-primary">Add Review</Link>
 
                     <h4>Reviews</h4>
                     <div className="row">
@@ -78,7 +78,7 @@ const Restaurant = props => {
                                                     </button>
                                                     <Link
                                                         to={{
-                                                            pathname: '/restaurants/' + props.match.params.id + '/reviews',
+                                                            pathname: '/restaurants/' + props.match.params.id + '/review',
                                                             state: { currentReview: review }
                                                         }}
                                                         className="btn btn-primary col-lg-5 mx-1 mb-1"
